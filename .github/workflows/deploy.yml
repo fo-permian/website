@@ -14,6 +14,11 @@ concurrency:
   group: 'pages'
   cancel-in-progress: false
 
+# Opt JavaScript-based actions into Node 24 now, ahead of the
+# June 2026 forced cutover. Silences the deprecation warning.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     name: Build
@@ -25,7 +30,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
 
       - name: Install dependencies
