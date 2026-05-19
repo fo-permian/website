@@ -2,7 +2,7 @@
 
 Marketing site for FO Permian Partners — off-grid natural gas + battery power in the Permian Basin for AI / hyperscale data centers.
 
-## Stack
+## Tech Stack
 
 - SvelteKit 2 + Svelte 5
 - Tailwind CSS v4
