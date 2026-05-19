@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FO Permian">
+  <rect width="64" height="64" rx="8" fill="#0B0D0F"/>
+  <text x="13" y="44" font-family="Space Grotesk, Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="30" font-weight="700" letter-spacing="-0.04em" fill="#F5F2EB">FO</text>
+  <line x1="51" y1="18" x2="51" y2="46" stroke="#E2762E" stroke-width="3" stroke-linecap="square"/>
+</svg>

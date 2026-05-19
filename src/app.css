@@ -1,0 +1,196 @@
+@import 'tailwindcss';
+
+@theme {
+  /* === Palette: modern with a touch of West Texas === */
+  /* Dark base — slightly warm near-black */
+  --color-bg: #0b0d0f;
+  /* Elevated surface (sections, cards) */
+  --color-surface: #14171b;
+  /* Permian dusk indigo — alternating section accent */
+  --color-dusk: #161a2b;
+  /* Borders / hairlines */
+  --color-line: rgba(245, 242, 235, 0.08);
+  --color-line-strong: rgba(245, 242, 235, 0.16);
+  /* Text */
+  --color-text: #f5f2eb;
+  --color-text-muted: #a39e96;
+  --color-text-dim: #6e6a64;
+  /* Accents — burnt amber + dusty terracotta */
+  --color-flame: #e2762e;
+  --color-flame-hi: #f4a157;
+  --color-terracotta: #b85c3a;
+  --color-sand: #d6c4a6;
+
+  /* === Typography === */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* === Radii === */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+
+  /* === Easing === */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg);
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    font-feature-settings: 'ss01', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-flame);
+    color: var(--color-bg);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--color-text);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Focus ring — keyboard friendly */
+  :focus-visible {
+    outline: 2px solid var(--color-flame);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .container-wide {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-wide {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-flame);
+    font-weight: 500;
+  }
+
+  .display-1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+
+  .display-2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+  }
+
+  .display-3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-numeral {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--color-text);
+    font-feature-settings: 'tnum';
+  }
+
+  /* Subtle topographic contour lines as section divider */
+  .topo-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-line-strong) 20%,
+      var(--color-flame) 50%,
+      var(--color-line-strong) 80%,
+      transparent 100%
+    );
+    opacity: 0.6;
+  }
+
+  /* Faint dust grain overlay — applied via wrapper for atmosphere */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s var(--ease-out-quart);
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background-color: var(--color-flame);
+    color: var(--color-bg);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-flame-hi);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    border-color: var(--color-line-strong);
+    color: var(--color-text);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-flame);
+    color: var(--color-flame);
+  }
+}
