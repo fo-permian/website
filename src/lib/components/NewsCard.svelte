@@ -1,18 +1,19 @@
 <script>
+  import { base } from '$app/paths';
   import { formatDate } from '$lib/data/news';
   /** @type {{ post: { slug: string, title: string, summary: string, date: string, cover?: string, location?: string }, featured?: boolean }} */
   let { post, featured = false } = $props();
 </script>
 
 <a
-  href="/news/{post.slug}"
+  href="{base}/news/{post.slug}"
   class="group flex flex-col overflow-hidden rounded-lg border border-line-strong bg-surface transition-all hover:border-flame"
   class:featured
 >
   {#if post.cover}
     <div class="relative aspect-[16/9] overflow-hidden bg-dusk">
       <img
-        src={post.cover}
+        src="{base}{post.cover}"
         alt=""
         class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
       />

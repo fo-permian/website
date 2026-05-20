@@ -38,6 +38,11 @@ jobs:
 
       - name: Build site
         run: npm run build
+        env:
+          # Subpath for GitHub Pages preview at fo-permian.github.io/website/.
+          # Remove this env block (or set BASE_PATH to '') once the custom
+          # domain (fopermian.com) is live and serving at the root.
+          BASE_PATH: /website
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

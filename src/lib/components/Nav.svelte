@@ -1,4 +1,5 @@
 <script>
+  import { base } from '$app/paths';
   import { nav } from '$lib/data/site';
   import Logo from './Logo.svelte';
 
@@ -24,14 +25,14 @@
     <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
       {#each nav as item}
         <a
-          href={item.href}
+          href="{base}{item.href}"
           class="rounded-sm px-3 py-2 font-mono text-xs uppercase tracking-wider text-text-muted transition-colors hover:text-text"
         >
           {item.label}
         </a>
       {/each}
       <a
-        href="/#contact"
+        href="{base}/#contact"
         class="btn btn-primary ml-3"
       >
         Get in touch
@@ -65,7 +66,7 @@
       <nav class="container-wide flex flex-col py-4" aria-label="Mobile">
         {#each nav as item}
           <a
-            href={item.href}
+            href="{base}{item.href}"
             onclick={() => (menuOpen = false)}
             class="py-3 font-mono text-sm uppercase tracking-wider text-text-muted hover:text-text"
           >

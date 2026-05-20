@@ -1,5 +1,6 @@
 <script>
   import { page } from '$app/state';
+  import { base } from '$app/paths';
 </script>
 
 <svelte:head>
@@ -25,8 +26,8 @@
       {/if}
     </p>
     <div class="mt-10 flex flex-wrap gap-3">
-      <a href="/" class="btn btn-primary">Home</a>
-      <a href="/news" class="btn btn-ghost">News</a>
+      <a href="{base}/" class="btn btn-primary">Home</a>
+      <a href="{base}/news" class="btn btn-ghost">News</a>
     </div>
   </div>
 </section>

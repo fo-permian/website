@@ -1,4 +1,6 @@
 <script>
+  import { base } from '$app/paths';
+
   const resources = [
     { label: 'Natural gas', value: 'Source-priced, redundant pipelines' },
     { label: 'Water', value: 'Abundant industrial supply for cooling' },
@@ -35,7 +37,7 @@
 
       <div class="order-1 lg:order-2">
         <figure class="relative overflow-hidden rounded-lg border border-line-strong">
-          <img src="/img/hivolt.jpg" alt="HiVolt Energy microgrid facility in West Texas" class="h-full w-full object-cover" />
+          <img src="{base}/img/hivolt.jpg" alt="HiVolt Energy microgrid facility in West Texas" class="h-full w-full object-cover" />
           <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-bg/95 via-bg/40 to-transparent p-5">
             <p class="font-mono text-xs uppercase tracking-wider text-flame">In operation</p>
             <p class="mt-1 text-sm text-text">HiVolt Energy microgrid · West Texas</p>

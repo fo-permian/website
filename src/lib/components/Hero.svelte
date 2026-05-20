@@ -1,4 +1,5 @@
 <script>
+  import { base } from '$app/paths';
   import { site } from '$lib/data/site';
 </script>
 
@@ -6,7 +7,7 @@
   <!-- Background: image + atmospheric gradients -->
   <div class="absolute inset-0 -z-10">
     <img
-      src="/img/hero-ai.png"
+      src="{base}/img/hero-ai.png"
       alt=""
       aria-hidden="true"
       class="h-full w-full object-cover object-center opacity-40"

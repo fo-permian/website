@@ -1,4 +1,6 @@
 <script>
+  import { base } from '$app/paths';
+
   /**
    * FO Permian logo.
    *
@@ -20,13 +22,13 @@
 </script>
 
 <a
-  href="/"
+  href="{base}/"
   class="inline-flex items-center {klass}"
   aria-label="FO Permian — home"
 >
   {#if variant === 'hex'}
     <img
-      src="/img/logo-inverted.png"
+      src="{base}/img/logo-inverted.png"
       alt="FO Permian"
       style="height: {height}px; width: auto; display: block;"
     />

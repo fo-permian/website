@@ -1,4 +1,5 @@
 <script>
+  import { base } from '$app/paths';
   import { formatDate } from '$lib/data/news';
   import { site } from '$lib/data/site';
 
@@ -29,7 +30,7 @@
 
   <div class="container-wide">
     <a
-      href="/news"
+      href="{base}/news"
       class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-text-muted transition-colors hover:text-flame"
     >
       <span aria-hidden="true">←</span> All news
@@ -55,7 +56,7 @@
 
     {#if post.cover}
       <figure class="mx-auto mt-12 max-w-5xl overflow-hidden rounded-lg border border-line-strong">
-        <img src={post.cover} alt="" class="w-full" />
+        <img src="{base}{post.cover}" alt="" class="w-full" />
       </figure>
     {/if}
 
